@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "AutoDomain",
+  "version": "1.0",
+  "description": "O AutoDomain é uma extensão  que simplifica e automatiza as etapas do processo de apontamento de domínio na AWS.",
+  "action": {
+    "default_popup": "./popup/index.html"
+  },
+  "permissions": ["tabs", "activeTab", "scripting"],
+  "background": {
+    "service_worker": "./core/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "./core/getDomains.js",
+        "./core/utils/mapTableValues.js",
+        "./core/utils/executeScriptInActiveTable.js"
+      ]
+    }
+  ]
+}
