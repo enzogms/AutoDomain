@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('#firstStep').addEventListener('click', function () {
     executeScriptInActiveTable(domainByACM)
+    document.getElementById('result').innerHTML = "Primeira etapa copiada para a sua Área de Transferência"
   })
 });
 
