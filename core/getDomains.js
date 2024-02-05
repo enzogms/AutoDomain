@@ -3,12 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let thisPage = tabs[0].url;
     if (!thisPage.includes("/certificates/") || thisPage.includes("/certificates/list")) {
       document.getElementById("firstStep").style.display = "none";
+      const result = document.getElementById('result')
+      result.style.display = "block";
+      result.innerHTML = "A aba atual não corresponde a nenhuma etapa de apontamento"
     }
   });
 
   document.querySelector('#firstStep').addEventListener('click', function () {
     executeScriptInActiveTable(domainByACM)
-    document.getElementById('result').innerHTML = "Primeira etapa copiada para a sua Área de Transferência"
+    const result = document.getElementById('result')
+    result.style.display = "block";
+    result.innerHTML = "Primeira etapa copiada para a sua Área de Transferência"
   })
 });
 
