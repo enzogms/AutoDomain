@@ -13,6 +13,10 @@ function generateFirstStep(arrays) {
   // Itera sobre cada array no array principal
   arrays.forEach((array) => {
     const domain = array[0];
+
+    //ignora dominios com Wildcard
+    if (domain.startsWith("*.")) return;
+
     const recordType = array[3];
     const name = normalizeValue(array[4]);
     const value = normalizeValue(array[5]);
@@ -20,7 +24,7 @@ function generateFirstStep(arrays) {
     // Adiciona os elementos desejados à mensagem
     message += `${domain}\n`;
     message += `Tipo: ${recordType}\n`;
-    message += `Nome: ${name}\n`;
+    message += `Nome: ${name.replace(domain + ".", "").replace(/\.$/, "")}\n`;
     message += `Valor: ${value}\n\n`;
   });
   return message;
