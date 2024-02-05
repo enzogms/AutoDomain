@@ -1,14 +1,6 @@
 function generateFirstStep(arrays) {
-  // coleção de array
-  // para cada elemento, gerar a seguinte mensagem, por exemplo:
-
-  // dominio
-  // Tipo: CNAME
-  // Nome: _nome
-  // Valor: _valor
-  // Inicializa um array para armazenar os elementos desejados
-  const elements = [];
   let message = "";
+  message += "```\n"
 
   // Itera sobre cada array no array principal
   arrays.forEach((array) => {
@@ -27,6 +19,8 @@ function generateFirstStep(arrays) {
     message += `Nome: ${name.replace(domain + ".", "").replace(/\.$/, "")}\n`;
     message += `Valor: ${value}\n\n`;
   });
+  message += `OBS: O valor deve ser adicionado com o "." ponto final.\n`
+  message += "```"
   return message;
 }
 

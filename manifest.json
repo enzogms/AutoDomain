@@ -6,7 +6,13 @@
   "action": {
     "default_popup": "./popup/index.html"
   },
-  "permissions": ["tabs", "activeTab", "scripting"],
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting",
+    "clipboardWrite",
+    "clipboardRead"
+  ],
   "background": {
     "service_worker": "./core/background.js"
   },
@@ -16,7 +22,8 @@
       "js": [
         "./core/getDomains.js",
         "./core/utils/mapTableValues.js",
-        "./core/utils/executeScriptInActiveTable.js"
+        "./core/utils/executeScriptInActiveTable.js",
+        "./core/utils/generateFirstStep.js"
       ]
     }
   ]

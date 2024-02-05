@@ -14,5 +14,13 @@ function domainByACM() {
   console.log("🚀 ~ domainByACM ~ tableDatas:", tableDatas)
   const data = mapTableValues(tableDatas)
   console.log("🚀 ~ domainByACM ~ data:", data)
+  console.log("🚀 ~ domainByACM ~ generateFirstStep(data):", generateFirstStep(data))
+
+  const textarea = document.createElement('textarea');
+  textarea.value = generateFirstStep(data);
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textarea);
 }
 
