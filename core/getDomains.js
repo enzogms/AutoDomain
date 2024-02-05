@@ -1,6 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+  chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+    let thisPage = tabs[0].url;
+    if (!thisPage.includes("/certificates/") || thisPage.includes("/certificates/list")) {
+      document.getElementById("firstStep").style.display = "none";
+    }
+  });
+
   document.querySelector('#firstStep').addEventListener('click', function () {
-    alert("First step clicked");
     executeScriptInActiveTable(domainByACM)
   })
 });
